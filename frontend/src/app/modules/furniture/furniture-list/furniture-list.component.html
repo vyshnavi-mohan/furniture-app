@@ -1,0 +1,32 @@
+<div class="padding">
+   <div class="container" style="width: 25cm;">
+      <div class="container h-100">
+         <div class="d-flex justify-content-center h-100">
+            <div class="searchbar">
+               <input class="search_input" type="text" name="" placeholder="Search...">
+               <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+            </div>
+         </div>
+      </div>
+      <h1>{{furniturelist.name}}</h1>
+      <div class="row">
+         <div class="tab-content col-xl-12">
+            <div class="tab-pane fade active show">
+               <div class="row">
+                  <div class="col-md-6" *ngFor="let furniturelist of furniturelist |async">
+                     <div class="single_menu_list">
+                        <img src="/assets/images/{{furniturelist.imageUrl}}" alt="furniture">
+                        <div class="menu_content">
+                           <h4>{{furniturelist.name}}<span>{{furniturelist.unitPrice}}</span></h4>
+                           <p>{{furniturelist.description}}</p>
+                           <button type="button" (click)="addToCart(furniturelist)" class="btn btn-danger">Add to Cart</button>&nbsp;
+                           <a [routerLink]="['/furniture/details',furniturelist._id]" class="btn btn-primary">View Details</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

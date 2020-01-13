@@ -1,0 +1,56 @@
+<div class="head">
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <h3>LOGIN</h3>
+          <div class="d-flex justify-content-end social_icon">
+            <a href="https://www.facebook.com/"><span><i class="fab fa-facebook-square"></i></span></a>
+            <a
+              href="https://accounts.google.com/signin/v2/identifier?passive=1209600&continue=https%3A%2F%2Faboutme.google.com%2Fu%2F0%2F%3Freferer%3Dgplus&followup=https%3A%2F%2Faboutme.google.com%2Fu%2F0%2F%3Freferer%3Dgplus&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><span><i
+                  class="fab fa-google-plus-square"></i></span></a>
+            <a href="https://twitter.com/login?lang=en"><span><i class="fab fa-twitter-square"></i></span></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <fieldset [disabled]="isLoading">
+            <form (ngSubmit)="login()" [formGroup]="loginForm">
+              <div class="form-group">
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" [placeholder]="'Username'" formControlName="username">
+                  </div>
+                  <app-control-messages [control]="f['username']"></app-control-messages>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+
+                    <input type="password" class="form-control" [placeholder]="'Password'" formControlName="password">
+                  </div>
+                  <app-control-messages [control]="f['password']"></app-control-messages>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn float-right login_btn" type="submit" [disabled]="loginForm.invalid">
+                  <span [hidden]="isLoading">Submit</span>
+                  <span [hidden]="!isLoading">
+                    <fa-icon icon="asterisk" size="3x" [spin]="true"></fa-icon>
+                  </span>
+                </button>
+              </div>
+            </form>
+          </fieldset>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+            Don't have an account? <a [routerLink]="['/signup']">Sign up here!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<section class="app">
+    <aside class="sidebar">
+        <header>
+            Elagant Interiors
+        </header>
+        <nav class="sidebar-nav">
+            <ul>
+                <li *ngFor="let categorylist of categorylist | async">
+                        <a (click)='navigatelistpage()'></a>
+                        <a (click)="navigatelistpage(categorylist.category)"><i class="fa fa-hand-point-right"></i> <span>{{categorylist.category}}</span></a>
+                </li>
+
+            </ul>
+
+        </nav>
+    </aside>
+</section>

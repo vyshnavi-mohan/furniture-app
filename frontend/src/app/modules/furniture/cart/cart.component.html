@@ -1,0 +1,47 @@
+<div class="padding">
+    <div class="container" style="width: 25cm;">
+        <h1>My Cart</h1>
+        <!-- <b>{{item.name}}</b> -->
+        <div class="container" *ngFor = "let item of cartItem">
+            <section id="cart">
+                <article class="product">
+                    <header>
+                        <a (click)="deleteitem(item.name)" class="remove">
+                            <img src="/assets/images/{{item.imageUrl}}" alt="">
+                            <h3>Remove product</h3>
+                        </a>
+                    </header>
+                    <div class="content">
+                        <h1>{{item.name}}</h1>
+                        {{item.description}}
+                    </div>
+                    <footer class="content">
+                        <span class="qt-minus" (click)="remove(item)">-</span>
+                        <span class="qt" >{{item.qty}}</span>
+                        <span class="qt-plus" (click)="add(item)">+</span>
+                        <h1>{{total$}}</h1>
+                        <h2 class="full-price">
+                            {{item.total}} INR
+                        </h2>
+                        <h2 class="price">
+                                {{item.unitPrice}} INR
+                        </h2>
+                    </footer>
+                </article>
+            </section>
+        </div>
+        <footer id="site-footer">
+            <div class="container clearfix">
+                <div class="left">
+                    <h2 class="subtotal">Subtotal: <span>{{subtotal}}</span> INR</h2>
+                    <h3 class="tax">Taxes (5%): <span>{{subtotal*0.05}}</span> INR</h3>
+                    <h3 class="shipping">Shipping: <span>5.00</span> INR</h3>
+                </div>
+                <div class="right">
+                    <h1 class="total">Total: <span>{{subtotal+subtotal*0.05+5.00}}</span> INR</h1>
+                    <a [routerLink]="['/furniture/checkout']" style="color: white;" class="btn">PROCED TO PAY</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

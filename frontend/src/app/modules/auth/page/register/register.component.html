@@ -1,0 +1,93 @@
+<div class="head">
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <h3>SIGNUP</h3>
+          <div class="d-flex justify-content-end social_icon">
+            <a href="https://www.facebook.com/"><span><i class="fab fa-facebook-square"></i></span></a>
+            <a
+              href="https://accounts.google.com/signin/v2/identifier?passive=1209600&continue=https%3A%2F%2Faboutme.google.com%2Fu%2F0%2F%3Freferer%3Dgplus&followup=https%3A%2F%2Faboutme.google.com%2Fu%2F0%2F%3Freferer%3Dgplus&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><span><i
+                  class="fab fa-google-plus-square"></i></span></a>
+            <a href="https://twitter.com/login?lang=en"><span><i class="fab fa-twitter-square"></i></span></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <!-- FirstName -->
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" formControlName="firstname" class="form-control" placeholder="FIRST NAME" [ngClass]="{ 'is-invalid': submitted && myForm.firstname.errors }"><br>
+                <!-- error -->
+                <div class="invalid-feedback" *ngIf="submitted && myForm.firstname.errors?.required">
+                  FirstName is required.
+                </div>
+              </div>
+            </div>
+            <!-- LastName -->
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" formControlName="lastname" class="form-control" placeholder="LAST NAME" [ngClass]="{ 'is-invalid': submitted && myForm.firstname.errors }"><br>
+                <div class="invalid-feedback" *ngIf="submitted && myForm.lastname.errors?.required">
+                  LastName is required.
+                </div>
+              </div>
+            </div>
+            <!-- UserName -->
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" formControlName="username" class="form-control" placeholder="USERNAME" [ngClass]="{ 'is-invalid': submitted && myForm.username.errors }"><br>
+                <div class="invalid-feedback" *ngIf="submitted && myForm.username.errors?.required">
+                  UserName is required.
+                </div>
+              </div>
+            </div>
+            <!-- Email -->
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                <input type="email" formControlName="email" class="form-control" placeholder="EMAIL" [ngClass]="{ 'is-invalid': submitted && myForm.email.errors }"><br>
+                <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.required">
+                  Enter your email.
+                </div>
+                <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.pattern">
+                  Enter valid email.
+                </div>
+              </div>
+            </div>
+            <!-- Mobile -->
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-mobile"></i></span>
+                <input type="number" formControlName="phone" class="form-control" placeholder="MOBILE" [ngClass]="{ 'is-invalid': submitted && myForm.phone.errors }"><br>
+                <!-- error -->
+                <div class="invalid-feedback" *ngIf="submitted && myForm.phone.errors?.required">
+                  Enter your phone number.
+                </div>
+                <div class="invalid-feedback" *ngIf="submitted && myForm.phone.errors?.pattern">
+                  Enter Numbers Only
+                </div>
+              </div>
+            </div>
+            <!-- Password -->
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                <input type="password" formControlName="password" class="form-control" placeholder="PASSWORD" [ngClass]="{ 'is-invalid': submitted && myForm.password.errors }">
+                <div class="invalid-feedback" *ngIf="submitted && myForm.password.errors?.required">
+                  Password is required.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="SignUp" (click)="signup()" class="btn float-right login_btn">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

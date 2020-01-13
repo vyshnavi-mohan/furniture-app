@@ -1,0 +1,18 @@
+<div class="w3-top">
+  <div id="ex4">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+      <a [routerLink]="['/home/home']" class="w3-bar-item w3-button">Elegant Interiors</a>
+      <div class="w3-right w3-hide-small">
+        <a [routerLink]="['/auth/about']" class="w3-bar-item w3-button">About</a>
+        <a [routerLink]="['/furniture/list/all']" class="w3-bar-item w3-button">Items</a>
+        <a [routerLink]="['/auth/contact']" class="w3-bar-item w3-button">Contact</a>
+        <!-- <a [routerLink]="['/login']" class="w3-bar-item w3-button">View Cart</a> -->
+        <a [routerLink]="['/furniture/cart']" style="color: black" class="p1 fa-stack fa-2x has-badge" >
+          <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count=""></i>
+          <span class="icon">{{cartItems}}</span>
+        </a>
+        <a [routerLink]="['/auth/home']" class="w3-bar-item w3-button">LogOut</a>
+      </div>
+    </div>
+  </div>
+</div>
